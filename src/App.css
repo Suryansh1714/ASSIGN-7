@@ -1,0 +1,280 @@
+/* ==========================================================================
+   Doctor Appointment App - Stylesheet (App.css)
+   Clean, beginner-friendly plain CSS for Problem Statement P4
+   ========================================================================== */
+
+/* Base & Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Navigation Bar
+   ========================================================================== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #334155;
+  font-weight: 600;
+  margin-right: 1.5rem;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.navbar a:hover {
+  color: #0284c7;
+}
+
+/* Live saved appointments counter */
+.badge-count {
+  display: inline-block;
+  background-color: #0284c7;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   Pages & Layouts
+   ========================================================================== */
+.home,
+.appointments-page,
+.details-page {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.home h1,
+.appointments-page h1,
+.details-page h1 {
+  margin-bottom: 0.75rem;
+  color: #0f172a;
+}
+
+/* Summary Box on Home Page */
+.summary-box {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-around;
+}
+
+.summary-box p,
+.summary-box div {
+  font-size: 1.05rem;
+  color: #475569;
+}
+
+/* Details Page Card */
+.details-page {
+  max-width: 650px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.details-page p {
+  margin: 0.75rem 0;
+  font-size: 1.05rem;
+  color: #334155;
+}
+
+/* Specialization Filter Dropdown */
+.filter-dropdown {
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #1e293b;
+  margin: 1rem 0 1.5rem 0;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter-dropdown:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+/* ==========================================================================
+   Doctor List & Cards
+   ========================================================================== */
+.doctor-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.doctor-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.doctor-card h3 {
+  color: #0f172a;
+  font-size: 1.2rem;
+}
+
+.doctor-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Status Badges
+   ========================================================================== */
+.badge-available,
+.badge-unavailable,
+.badge-senior {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 20px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Green badge for Available Today */
+.badge-available {
+  background-color: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+/* Red badge for Not Available / No Slots Left */
+.badge-unavailable {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+/* Blue badge for Senior Doctor (Experience >= 10 yrs) */
+.badge-senior {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+/* ==========================================================================
+   Buttons & Interactive Elements
+   ========================================================================== */
+button,
+.btn-book,
+.btn-cancel,
+.btn-disabled {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Book Appointment Button */
+.btn-book {
+  background-color: #0284c7;
+  color: #ffffff;
+}
+
+.btn-book:hover {
+  background-color: #0369a1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
+}
+
+/* Cancel Appointment Button */
+.btn-cancel {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.btn-cancel:hover {
+  background-color: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.25);
+}
+
+/* Disabled State Button / Text */
+.btn-disabled {
+  background-color: #e2e8f0;
+  color: #94a3b8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-disabled:hover {
+  background-color: #e2e8f0;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   Appointments Page & Total Fee
+   ========================================================================== */
+.total-fee {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background-color: #f1f5f9;
+  border-left: 4px solid #0284c7;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+}
